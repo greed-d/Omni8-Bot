@@ -129,7 +129,7 @@ async def info_error(ctx, error):
 # * Slap and pat member
 
 
-'''@bot.command()
+@bot.command()
 async def slap(ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
     slapped = ','.join(x.name for x in members)
     if not ctx.message.mentions:
@@ -148,7 +148,7 @@ async def pat(ctx, members: commands.Greedy[discord.Member], *, reason=None):
     if not ctx.message.mentions:
         await ctx.send(f'{ctx.author.mention} Do you need a hug??\nIf not mention someone ya moron')
 
-    if ctx.author in ctx.message.mentions:
+    elif ctx.author in ctx.message.mentions:
         print(ctx.message.mentions)
         await ctx.send(f"Are you okay {ctx.author.mention}???? \nYou need a hug???")
 
@@ -214,6 +214,6 @@ async def info_error(ctx, error):
 @bot.event
 async def on_command_error(ctx, exception):
     if isinstance(exception, commands.errors.CommandNotFound):
-        await ctx.send(f"Uh ohh!!!\nI don't think that is a valid argument {ctx.author.mention} \nTry >help for more info")'''
+        await ctx.send(f"Uh ohh!!!\nI don't think that is a valid argument {ctx.author.mention} \nTry >help for more info")
 
 bot.run(TOKEN)
