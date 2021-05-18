@@ -1,3 +1,8 @@
+import discord
+import os
+import random
+import requests
+import json
 from asyncio.windows_events import NULL
 from discord.flags import Intents
 from dotenv import load_dotenv
@@ -6,11 +11,6 @@ from discord.ext import commands, tasks
 from discord import message
 from itertools import cycle
 from functools import partialmethod
-import discord
-import os
-import random
-import requests
-import json
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -32,7 +32,31 @@ async def bot_status():
     await bot.change_presence(activity=discord.Game(next(bot_statuses)))
 
 
-@bot.event
+@bot.command()
+async def load(ctx, extension):
+    bot.load_extension(f'cogs.{extension}')
+    await ctx.send("The cog has been loaded")
+
+
+@bot.command()
+async def unload(ctx, extension):
+    bot.unload_extension(f'cogs.{extension}')
+    await ctx.send("The cog has been unloaded")
+
+
+@bot.command()
+async def reload(ctx, extension):
+    bot.unload_extension(f'cogs.{extension}')
+    bot.load_extension(f'cogs.{extension}')
+    await ctx.send("Cogs reloaded")
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        bot.load_extension(f'cogs.{filename[:-3]}')
+        print("Found one")
+
+
+'''@bot.event
 async def on_ready():
     print('Bot {0.user} is ready.'.format(bot))
     bot_status.start()
@@ -214,6 +238,7 @@ async def info_error(ctx, error):
 @bot.event
 async def on_command_error(ctx, exception):
     if isinstance(exception, commands.errors.CommandNotFound):
-        await ctx.send(f"Uh ohh!!!\nI don't think that is a valid argument {ctx.author.mention} \nTry >help for more info")
+        await ctx.send(f"Uh ohh!!!\nI don't think that is a valid argument {ctx.author.mention} \nTry >help for more info")'''
+
 
 bot.run(TOKEN)
