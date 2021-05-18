@@ -7,14 +7,6 @@ class expressions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        print("Bot is ready")
-
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send("Pong!")
-
     @commands.command()
     async def slap(self, ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
         slapped = ','.join(x.name for x in members)
@@ -39,6 +31,14 @@ class expressions(commands.Cog):
 
         else:
             await ctx.send(' {} got patted '.format(patted))
+
+    @commands.command(aliases=['re', 'F'])
+    async def respect(self, ctx, member: discord.Member):
+        if ctx.author in ctx.message.mentions:
+            await ctx.send("Self-Respect I see :slight_smile:")
+
+        else:
+            await ctx.send(f'{ctx.author.mention} pays respect to {member.mention}')
 
 
 def setup(bot):
