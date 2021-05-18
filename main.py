@@ -45,7 +45,7 @@ async def unload(ctx, extension):
 
 
 @bot.command()
-async def reload(ctx, extension):
+async def re_load(ctx, extension):
     bot.unload_extension(f'cogs.{extension}')
     bot.load_extension(f'cogs.{extension}')
     await ctx.send("Cogs reloaded")
@@ -56,7 +56,7 @@ for filename in os.listdir('./cogs'):
         print("Found one")
 
 
-@reload.error
+@re_load.error
 async def info_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please enter the name of package you want to reload")
