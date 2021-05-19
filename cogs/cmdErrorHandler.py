@@ -11,6 +11,9 @@ class commandErrorHandler(commands.Cog):
         if isinstance(error, commands.CommandNotFound):
             await ctx.send("uh oh this command is not in here, try >help for more info")
 
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("You don't have the required level of authority to execute this command")
+
         if hasattr(ctx.command, 'on_error'):
             return
 

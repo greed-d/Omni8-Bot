@@ -31,6 +31,8 @@ bot_statuses = cycle([
 async def bot_status():
     await bot.change_presence(activity=discord.Game(next(bot_statuses)))
 
+bot.remove_command("help")
+
 
 @bot.command()
 async def load(ctx, extension):
