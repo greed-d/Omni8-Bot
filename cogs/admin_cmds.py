@@ -12,11 +12,24 @@ class admin_commands(commands.Cog):
         await member.kick(reason=reason)
         await ctx.send(f'{member.mention}has been kicked')
 
+    @kick.error
+    async def info_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("Oops! You don't have that permission.")
+
+        if ctx.author.id == ctx.guild.owner_id:
+            await ctx.send("You are the owner!!! Why kick yourself?")
+
     @commands.command()
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
         await member.ban(reason=reason)
-        await ctx.send(f'{member.mention} has been kicked')
+        await ctx.send(f'{member.mention} has been banned')
+
+    @ban.error
+    async def info_error(ctx, error):
+        if isinstance(error, commands.errors.MissingPermissions):
+            await ctx.send("Oops! You don't have that permission.")
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
@@ -31,6 +44,11 @@ class admin_commands(commands.Cog):
                 await ctx.guild.unban(user)
                 await ctx.send(f'Unbanned {user.mention}')
                 return
+
+    @unban.error
+    async def info_error(ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("Oops! You don't have that permission.")
 
 
 def setup(bot):

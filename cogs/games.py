@@ -9,6 +9,7 @@ class games(commands.Cog):
 
     @commands.command(aliases=['ft'])
     async def fortune_telling(ctx, *, question):
+
         response = [
             "It is certain.",
             "It is decidedly so.",
@@ -31,7 +32,8 @@ class games(commands.Cog):
             "Outlook not so good.",
             "Very doubtful."
         ]
-        if question.startswith('will') or question.startswith('Will'):
+
+        if question.startswith('will'):
             await ctx.send(f"Question : {question} \nAnswer : {random.choice(response)}")
         else:
             await ctx.send(f"Type a yes/no question starting with 'will' bud")

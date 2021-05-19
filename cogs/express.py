@@ -32,13 +32,18 @@ class expressions(commands.Cog):
         else:
             await ctx.send(' {} got patted '.format(patted))
 
-    @commands.command(aliases=['re', 'F'])
+    @commands.command(aliases=['f', 're', 'F'])
     async def respect(self, ctx, member: discord.Member):
         if ctx.author in ctx.message.mentions:
             await ctx.send("Self-Respect I see :slight_smile:")
 
         else:
             await ctx.send(f'{ctx.author.mention} pays respect to {member.mention}')
+
+    @respect.error
+    async def info_error(ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Who do you want to respect man?")
 
 
 def setup(bot):
