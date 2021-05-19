@@ -36,21 +36,30 @@ bot.remove_command("help")
 
 @bot.command()
 async def load(ctx, extension):
-    bot.load_extension(f'cogs.{extension}')
-    await ctx.send("The cog has been loaded")
+    if ctx.author.id == 532960958381817857:
+        bot.load_extension(f'cogs.{extension}')
+        await ctx.send("The cog has been loaded")
 
 
 @bot.command()
 async def unload(ctx, extension):
-    bot.unload_extension(f'cogs.{extension}')
-    await ctx.send("The cog has been unloaded")
+    if ctx.author.id == 532960958381817857:
+        bot.unload_extension(f'cogs.{extension}')
+        await ctx.send("The cog has been unloaded")
+
+    else:
+        await ctx.sent("You don't have the required permission")
 
 
 @bot.command()
 async def re_load(ctx, extension):
-    bot.unload_extension(f'cogs.{extension}')
-    bot.load_extension(f'cogs.{extension}')
-    await ctx.send("Cogs reloaded")
+    if ctx.author.id == 532960958381817857:
+        bot.unload_extension(f'cogs.{extension}')
+        bot.load_extension(f'cogs.{extension}')
+        await ctx.send("Cogs reloaded")
+
+    else:
+        await ctx.sent("You don't have the required permission")
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
