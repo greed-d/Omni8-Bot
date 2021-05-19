@@ -7,36 +7,32 @@ class games(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['ft'])
-    async def fortune_telling(ctx, *, question):
+    print("world")
 
-        response = [
-            "It is certain.",
-            "It is decidedly so.",
-            "Without a doubt.",
-            "Yes - definitely.",
-            "You may rely on it.",
-            "As I see it, yes.",
-            "Most likely.",
-            "Outlook good.",
-            "Yes.",
-            "Signs point to yes.",
-            "Reply hazy, try again.",
-            "Ask again later.",
-            "Better not tell you now.",
-            "Cannot predict now.",
-            "Concentrate and ask again.",
-            "Don't count on it.",
-            "My reply is no.",
-            "My sources say no.",
-            "Outlook not so good.",
-            "Very doubtful."
-        ]
-
-        if question.startswith('will'):
-            await ctx.send(f"Question : {question} \nAnswer : {random.choice(response)}")
-        else:
-            await ctx.send(f"Type a yes/no question starting with 'will' bud")
+    @commands.command(aliases=['8ball', '8b'])
+    async def eightball(ctx, *, question):
+        print("Wow")
+        responses = ["It is certain.",
+                     "It is decidedly so.",
+                     "Without a doubt.",
+                     "Yes - definitely.",
+                     "You may rely on it.",
+                     "As I see it, yes.",
+                     "Most likely.",
+                     "Outlook good.",
+                     "Yes.",
+                     "Signs point to yes.",
+                     "Reply hazy, try again.",
+                     "Ask again later.",
+                     "Better not tell you now.",
+                     "Cannot predict now.",
+                     "Concentrate and ask again.",
+                     "Don't count on it.",
+                     "My reply is no.",
+                     "My sources say no.",
+                     "Outlook not so good.",
+                     "Very doubtful."]
+        await ctx.send(f':8ball: Question: {question}\n:8ball: Answer: {random.choice(responses)}')
 
 
 def setup(bot):

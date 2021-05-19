@@ -1,16 +1,16 @@
 import discord
 import os
-from discord.player import AudioSource
+
 import requests
 import json
 from asyncio.windows_events import NULL
 from discord.flags import Intents
 from dotenv import load_dotenv
-from discord.ext.commands.converter import RoleConverter, clean_content
+
 from discord.ext import commands, tasks
-from discord import message
+
 from itertools import cycle
-from functools import partialmethod
+
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -81,49 +81,6 @@ async def inspire(ctx):
 
 
 '''
-@respect.error
-async def info_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("Who do you want to respect man?")
-
-
-
-
-# * Kick, Ban and Unban member
-
-
-@kick.error
-async def info_error(ctx, error):
-    if isinstance(error, commands.errors.MissingPermissions):
-        await ctx.send("Oops! You don't have that permission.")
-
-
-@ban.error
-async def info_error(ctx, error):
-    if isinstance(error, commands.errors.MissingPermissions):
-        await ctx.send("Oops! You don't have that permission.")
-
-
-@unban.error
-async def info_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send("Oops! You don't have that permission.")
-
-
-
-
-
-# * Inspire part from previous bot
-
-
-
-
-# * Games like Fortune Telling and .....
-
-
-
-
-
 @fortune_telling.error
 async def info_error(ctx, error):
     if isinstance(error, commands.errors.CommandNotFound):

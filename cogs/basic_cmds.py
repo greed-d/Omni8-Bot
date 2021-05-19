@@ -19,7 +19,7 @@ class basic_commands(commands.Cog):
         else:
             await ctx.send(f"Hello to {ctx.author.mention}!!!")
 
-    @commands.command(aliases=['arigatoo'])
+    @commands.command(aliases=['arigatoo', 'thank you', 'Thank you', 'Thanks'])
     async def thanks(self, ctx):
         await ctx.send(f"You're welcome {ctx.author.mention} :)")
 
