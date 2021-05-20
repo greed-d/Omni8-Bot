@@ -7,7 +7,9 @@ class games(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    print("world")
+    @commands.command()
+    async def hellu(self, ctx):
+        await ctx.send("Hellu")
 
     @commands.command(aliases=['8ball', '8b'])
     async def eightball(ctx, *, question):

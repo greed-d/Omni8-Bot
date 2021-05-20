@@ -1,14 +1,11 @@
 import discord
 import os
-
 import requests
 import json
 from asyncio.windows_events import NULL
 from discord.flags import Intents
 from dotenv import load_dotenv
-
 from discord.ext import commands, tasks
-
 from itertools import cycle
 
 
@@ -51,14 +48,14 @@ async def unload(ctx, extension):
         await ctx.sent("You don't have the required permission")
 
 
-@bot.command()
+@bot.command(aliases=['rl'])
 async def re_load(ctx, extension):
     if ctx.author.id == 532960958381817857:
         bot.unload_extension(f'cogs.{extension}')
         bot.load_extension(f'cogs.{extension}')
         await ctx.send("Cogs reloaded")
 
-    else:
+    elif ctx.author.id != bot.is_owner:
         await ctx.sent("You don't have the required permission")
 
 for filename in os.listdir('./cogs'):
