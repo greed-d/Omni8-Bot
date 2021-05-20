@@ -54,6 +54,14 @@ class expressions(commands.Cog):
 
         else:
             await ctx.send(f'{ctx.author.mention} pays respect to {member.mention}')
+            respect_gif = [
+                'https://tenor.com/view/respect-gif-7551965',
+                'https://tenor.com/view/respect-bow-bruce-lee-gif-14266999',
+                'https://tenor.com/view/respect-davis-boreanaz-salute-uniform-gif-11216021',
+                'https://tenor.com/view/school-of-rock-jack-black-dewey-finn-salute-respect-gif-4980602'
+
+            ]
+            await ctx.send(random.choice(respect_gif))
 
     @respect.error
     async def info_error(ctx, error):
