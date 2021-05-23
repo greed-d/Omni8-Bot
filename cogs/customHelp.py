@@ -4,7 +4,7 @@ from discord.ext import commands, tasks
 from discord.ext.commands.core import bot_has_any_role
 
 
-class cusHelp(commands.Cog):
+class cus_help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -103,8 +103,8 @@ class cusHelp(commands.Cog):
         em.add_field(name='**SYNTAX**',
                      value='>``joke``'
                      )
-        
-        await ctx.send(embed = em)
+
+        await ctx.send(embed=em)
 
     @help.command()
     async def hello(self, ctx):
@@ -145,4 +145,4 @@ class cusHelp(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(cusHelp(bot))
+    bot.add_cog(cus_help(bot))
