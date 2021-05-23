@@ -11,6 +11,16 @@ class basic_commands(commands.Cog):
     async def on_ready(self):
         print("Bot {0.user} is ready".format(self.bot))
 
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        mbed = discord.Embed(
+            color=(discord.Colour.dark_teal()),
+            title="Welcome to server",
+            description=(
+                f"Welcome {member.mention}, Server maa tapai lai swagt xa :)")
+        )
+        await member.send(embed=mbed)
+
     @commands.command(aliases=['suppun', 'hi'])
     async def hello(self, ctx):
         if ctx.author.id == 775252975643263006:

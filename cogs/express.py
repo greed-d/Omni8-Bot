@@ -3,6 +3,8 @@ import discord
 from discord import message
 from discord.ext import commands, tasks
 import random
+import aiohttp
+import asyncio
 
 
 class expressions(commands.Cog):
@@ -67,6 +69,14 @@ class expressions(commands.Cog):
     async def info_error(ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Who do you want to respect man?")
+
+    @commands.command()
+    async def joke(self, ctx):
+        headers = {"accept": "application/json"}
+        async with aiohttp.ClientSession() as session:
+            async with session.get('https://icanhazdadjoke.com/', headers=headers) as resp:
+                hehe = (await resp.json())
+                await ctx.send(hehe['joke'])
 
 
 def setup(bot):

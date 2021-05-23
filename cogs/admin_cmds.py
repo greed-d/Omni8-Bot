@@ -53,6 +53,7 @@ class admin_commands(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def slowmode(self, ctx, time: int):
+
         if time == None:
             await ctx.channel.edit(slowmode_delay=10)
             await ctx.send("Slowmode set to 10 sec")
