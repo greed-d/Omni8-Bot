@@ -70,14 +70,6 @@ class expressions(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Who do you want to respect man?")
 
-    @commands.command()
-    async def joke(self, ctx):
-        headers = {"accept": "application/json"}
-        async with aiohttp.ClientSession() as session:
-            async with session.get('https://icanhazdadjoke.com/', headers=headers) as resp:
-                hehe = (await resp.json())
-                await ctx.send(hehe['joke'])
-
 
 def setup(bot):
     bot.add_cog(expressions(bot))

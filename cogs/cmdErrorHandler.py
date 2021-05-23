@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class commandErrorHandler(commands.Cog):
+class command_error_handler(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -19,4 +19,4 @@ class commandErrorHandler(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(commandErrorHandler(bot))
+    bot.add_cog(command_error_handler(bot))
