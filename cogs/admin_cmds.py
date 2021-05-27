@@ -1,4 +1,5 @@
 import discord
+from discord import channel
 from discord.ext import commands
 from discord.ext.commands.core import command
 
@@ -6,6 +7,8 @@ from discord.ext.commands.core import command
 class admin_commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.badwords = ['fuck', 'motherfucker',
+                         'bitch', 'whore', 'hoe', 'nigga', 'nigger']
 
     @commands.command()
     @commands.has_permissions(kick_members=True)
@@ -67,6 +70,23 @@ class admin_commands(commands.Cog):
         else:
             await ctx.channel.edit(slowmode_delay=time)
             await ctx.send(f"Slowmode set to {time} seconds!")
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        for i in self.badwords:
+            if i.lower() in message.content.lower() or i.upper() in message.content.upper():
+                await message.delete()
+                await message.channel.send(f"{message.author.mention} you cannot use that word here")
+                self.bot.dispatch('profanity', message, i)
+                return
+
+    @commands.Cog.listener()
+    async def on_profanity(self, message, word):
+        channel = self.bot.get_channel(847342532438655017)
+        embed = discord.Embed(title='**PROFANITY ALERT**',
+                              description=f"{message.author.name} just said the word ||{word}||", color=discord.Color.blurple()
+                              )
+        await channel.send(embed=embed)
 
 
 def setup(bot):
