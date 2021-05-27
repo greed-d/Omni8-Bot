@@ -7,8 +7,10 @@ from discord.ext.commands.core import command
 class admin_commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.badwords = ['fuck', 'motherfucker',
-                         'bitch', 'whore', 'hoe', 'nigga', 'nigger']
+        self.badwords = ['fuck', 'motherfucker', 'mugi', 'muji', 'fucking', 'motherfucking', 'dick', 'machikne', 'shit', 'tits',
+                         'bitch', 'whore', 'hoe', 'nigga', 'nigger', 'cunt', 'faggot', 'pussy', 'asshole', 'dickhead', 'bastard',
+                         'wanker', 'randi', 'radi', 'chikne', 'chickney', 'gede'
+                         ]
 
     @commands.command()
     @commands.has_permissions(kick_members=True)
@@ -87,6 +89,11 @@ class admin_commands(commands.Cog):
                               description=f"{message.author.name} just said the word ||{word}||", color=discord.Color.blurple()
                               )
         await channel.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_guild_join(self, guild):
+        perms = discord.Permissions(send_messages=False, read_messages=True)
+        role = await guild.create_role(name="Muted", permissions=perms)
 
 
 def setup(bot):
