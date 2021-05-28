@@ -105,6 +105,7 @@ class admin_commands(commands.Cog):
         role = await guild.create_role(name="Muted", permissions=perms)
 
     @commands.command()
+    @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx, member: discord.Member):
         if member.id == 841547916199329812:
             await ctx.channel.send("You cannot mute the bot")
@@ -115,6 +116,7 @@ class admin_commands(commands.Cog):
             await ctx.channel.send(f"{member.mention} has been **MUTED**")
 
     @commands.command()
+    @commands.has_permissions(manage_messages=True)
     async def unmute(self, ctx, member: discord.Member):
         role = discord.utils.get(ctx.guild.roles, name='Muted')
         await member.remove_roles(role)
