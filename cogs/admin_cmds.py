@@ -9,7 +9,7 @@ class admin_commands(commands.Cog):
         self.bot = bot
         self.badwords = ['fuck', 'motherfucker', 'mugi', 'muji', 'fucking', 'motherfucking', 'dick', 'machikne', 'shit', 'tits',
                          'bitch', 'whore', 'hoe', 'nigga', 'nigger', 'cunt', 'faggot', 'pussy', 'asshole', 'dickhead', 'bastard',
-                         'wanker', 'randi', 'radi', 'chikne', 'chickney', 'gede'
+                         'wanker', 'randi', 'radi', 'chikne', 'chickney', 'gede', 'lado', 'suck my', 'lick my'
                          ]
 
     @commands.command()
@@ -84,16 +84,41 @@ class admin_commands(commands.Cog):
 
     @commands.Cog.listener()
     async def on_profanity(self, message, word):
-        channel = self.bot.get_channel(847342532438655017)
-        embed = discord.Embed(title='**PROFANITY ALERT**',
-                              description=f"{message.author.name} just said the word ||{word}||", color=discord.Color.blurple()
-                              )
-        await channel.send(embed=embed)
+        guild = message.guild
+        if guild.id == 841550614344237057:
+            channel = self.bot.get_channel(847342532438655017)
+            embed = discord.Embed(title='**PROFANITY ALERT**',
+                                  description=f"{message.author.name} just said the word ||{word}||", color=discord.Color.blurple()
+                                  )
+            await channel.send(embed=embed)
+
+        elif guild.id == 839543471412477952:
+            channel = self.bot.get_channel(847375614406950933)
+            embed = discord.Embed(title='**PROFANITY ALERT**',
+                                  description=f"{message.author.name} just said the word ||{word}||", color=discord.Color.blurple()
+                                  )
+            await channel.send(embed=embed)
 
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
         perms = discord.Permissions(send_messages=False, read_messages=True)
         role = await guild.create_role(name="Muted", permissions=perms)
+
+    @commands.command()
+    async def mute(self, ctx, member: discord.Member):
+        if member.id == 841547916199329812:
+            await ctx.channel.send("You cannot mute the bot")
+
+        else:
+            var = discord.utils.get(ctx.guild.roles, name='Muted')
+            await member.add_roles(var)
+            await ctx.channel.send(f"{member.mention} has been **MUTED**")
+
+    @commands.command()
+    async def unmute(self, ctx, member: discord.Member):
+        role = discord.utils.get(ctx.guild.roles, name='Muted')
+        await member.remove_roles(role)
+        await ctx.channel.send(f"{member.mention} has been **UNMUTED**")
 
 
 def setup(bot):

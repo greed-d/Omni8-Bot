@@ -11,8 +11,8 @@ class games(commands.Cog):
     async def hellu(self, ctx):
         await ctx.send("Hellu")
 
-    @commands.command(aliases=['8ball', '8b'])
-    async def eightball(ctx, *, question):
+    @commands.command(aliases=['ft', 'fortune'])
+    async def fortu_tellin(ctx, *, question):
         print("Wow")
         responses = ["It is certain.",
                      "It is decidedly so.",
