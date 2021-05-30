@@ -75,12 +75,16 @@ class admin_commands(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+
         for i in self.badwords:
             if i.lower() in message.content.lower() or i.upper() in message.content.upper():
-                await message.delete()
-                await message.channel.send(f"{message.author.mention} you cannot use that word here")
-                self.bot.dispatch('profanity', message, i)
-                return
+                if message.author.id == 532960958381817857 or message.author.id == 822867678745853963:
+                    return
+                else:
+                    await message.delete()
+                    await message.channel.send(f"{message.author.mention} you cannot use that word here")
+                    self.bot.dispatch('profanity', message, i)
+                    return
 
     @commands.Cog.listener()
     async def on_profanity(self, message, word):
@@ -110,6 +114,9 @@ class admin_commands(commands.Cog):
         if member.id == 841547916199329812:
             await ctx.channel.send("You cannot mute the bot")
 
+        elif ctx.author.id == member.id:
+            await ctx.channel.send("You cannot mute yourself")
+
         else:
             var = discord.utils.get(ctx.guild.roles, name='Muted')
             await member.add_roles(var)
@@ -121,6 +128,19 @@ class admin_commands(commands.Cog):
         role = discord.utils.get(ctx.guild.roles, name='Muted')
         await member.remove_roles(role)
         await ctx.channel.send(f"{member.mention} has been **UNMUTED**")
+
+    @commands.command()
+    @commands.has_permissions(manage_messages=True)
+    async def purge(self, ctx, amount=0):
+        if amount == 0:
+            await ctx.channel.send(f"Please enter a number ", delete_after=5)
+
+        elif amount > 100:
+            await ctx.channel.send(f"Please don't enter a number greater than 100", delete_after=5)
+
+        else:
+            deleted = await ctx.channel.purge(limit=amount+1)
+            await ctx.channel.send("Deleted {} message(s)".format(len(deleted)), delete_after=8)
 
 
 def setup(bot):

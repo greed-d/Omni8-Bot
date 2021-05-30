@@ -14,7 +14,7 @@ class cus_help(commands.Cog):
             title="Help", description="Hola!! Here!! Use >help  <command>  for furthur info")
 
         em.add_field(name=" 🛠 Moderation",
-                     value=' ``👢 kick``, ``❌ ban``, ``❗warn``, ``🆘 unban``, ``⏳ slowmode``, ``🔇 Mute``, ``🔊Unmute``')
+                     value=' ``👢 kick``, ``❌ ban``, ``❗warn``, ``🆘 unban``, ``⏳ slowmode``, ``🔇 Mute``, ``🔊Unmute``, `    💥Purge`')
         em.add_field(name=' 😎 Expressions',
                      value=' ``🧤 pat``, ``🤚🏿 slap``, `` 🙏 respect``, ``🤣joke``')
         em.add_field(name=" 🔥 Basic Commands",
@@ -81,6 +81,16 @@ class cus_help(commands.Cog):
 
         em.add_field(name='**SYNTAX**',
                      value=">``Unmute <member/username>``")
+
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def purge(self, ctx):
+        em = discord.Embed(
+            title="Purge", description="``Purges 'x' amount of message from server``", color=ctx.author.color)
+
+        em.add_field(name='**SYNTAX**',
+                     value=">``purge \n Amount = 1<x<100``")
 
         await ctx.send(embed=em)
 
