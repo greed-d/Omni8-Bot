@@ -120,7 +120,7 @@ class cus_help(commands.Cog):
             title="Respect", description="``Respects a member on the server 😢``", color=ctx.author.color)
 
         em.add_field(name='**SYNTAX**',
-                     value=">``respect <member/username>`` ")
+                     value=">``respect/f/re/F <member/username>`` ")
 
         await ctx.send(embed=em)
 

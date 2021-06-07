@@ -10,10 +10,28 @@ import asyncio
 class expressions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.slap_gif = ['https://media.giphy.com/media/gSIz6gGLhguOY/giphy.gif',
+                         'https://media.giphy.com/media/uG3lKkAuh53wc/giphy.gif',
+                         'https://media.giphy.com/media/u8maN0dMhVWPS/giphy.gif',
+                         'https://media.giphy.com/media/l3YSimA8CV1k41b1u/giphy.gif',
+                         'https://media.giphy.com/media/10L38gtN2vVpgk/giphy.gif']
+
+        self.pat_gif = ['https://media.giphy.com/media/L2z7dnOduqEow/giphy.gif',
+                        'https://media.giphy.com/media/LZTexZNeIrpD3TiRi2/giphy.gif',
+                        'https://media.giphy.com/media/ye7OTQgwmVuVy/giphy.gif',
+                        'https://media.giphy.com/media/xUA7bahIfcCqC7S4qA/giphy.gif',
+                        'https://media.giphy.com/media/N0CIxcyPLputW/giphy.gif'
+                        ]
+
+        self.respect_gif = [
+            'https://media.giphy.com/media/9JyTQrfpJs8zZ9xLI3/giphy.gif',
+            'https://media.giphy.com/media/lEVZJzy4w15qE/giphy.gif',
+            'https://media.giphy.com/media/MaJ7An3EUgLCCh4lXS/giphy.gif',
+            'https://media.giphy.com/media/WO5Q7FsxJN2pjYc424/giphy.gif']
 
     @commands.command()
     async def slap(self, ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
-        slapped = ','.join(x.mention for x in members)
+        slapped = ','.join(x.name for x in members)
         if not ctx.message.mentions:
             await ctx.send(f'{ctx.author.mention} Whom do you want to slap bud?')
 
@@ -21,18 +39,16 @@ class expressions(commands.Cog):
             await ctx.send(f"{ctx.author.mention} Why slap yourself bruh? 🤐🤐")
 
         elif ctx.message.mentions:
-            await ctx.send(f"{slapped} got slapped by {ctx.author.mention} for {reason}")
-            slap_gif = ['https://tenor.com/view/cat-spank-pia-mad-slap-gif-17761999',
-                        'https://tenor.com/view/couple-cute-angry-mad-hit-head-gif-17327764',
-                        'https://tenor.com/view/couple-hit-smack-beat-notty-gif-15960722',
-                        'https://tenor.com/view/go-to-sleep-slapping-face-gif-15440023',
-                        'https://tenor.com/view/slap-bears-gif-10422113'
-                        ]
-            await ctx.send(random.choice(slap_gif))
+            em = discord.Embed(
+                title=f"{slapped} got slapped by {ctx.author.name} for {reason}"
+            )
+        em.set_image(url=random.choice(self.slap_gif))
+
+        await ctx.send(embed=em)
 
     @commands.command()
     async def pat(self, ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
-        patted = ','.join(x.mention for x in members)
+        patted = ','.join(x.name for x in members)
         if not ctx.message.mentions:
             await ctx.send(f'{ctx.author.mention} Whom do you want to slap bud?')
 
@@ -40,14 +56,11 @@ class expressions(commands.Cog):
             await ctx.send(f"{ctx.author.mention} Why slap yourself bruh? 🤐🤐")
 
         elif ctx.message.mentions:
-            await ctx.send(f"{patted} got patted by {ctx.author.mention} for {reason}")
-            pat_gif = ['https://tenor.com/view/pat-good-boy-gif-7220650',
-                       'https://tenor.com/view/kitten-pat-caress-love-care-gif-13912621    ',
-                       'https://tenor.com/view/big-hero6-baymax-there-there-patting-head-pat-head-gif-4086973',
-                       'https://tenor.com/view/kanna-dragonmaid-dragon-maid-misskobayashi-gif-8053566',
-                       'https://tenor.com/view/funny-dog-cat-patting-head-gif-4953911'
-                       ]
-            await ctx.send(random.choice(pat_gif))
+            em = discord.Embed(
+                title=f"{patted} got patted by {ctx.author.name} for no reason"
+            )
+            em.set_image(url=random.choice(self.pat_gif))
+            await ctx.send(embed=em)
 
     @commands.command(aliases=['f', 're', 'F'])
     async def respect(self, ctx, member: discord.Member):
@@ -55,15 +68,11 @@ class expressions(commands.Cog):
             await ctx.send("Self-Respect I see :slight_smile:")
 
         else:
-            await ctx.send(f'{ctx.author.mention} pays respect to {member.mention}')
-            respect_gif = [
-                'https://tenor.com/view/respect-gif-7551965',
-                'https://tenor.com/view/respect-bow-bruce-lee-gif-14266999',
-                'https://tenor.com/view/respect-davis-boreanaz-salute-uniform-gif-11216021',
-                'https://tenor.com/view/school-of-rock-jack-black-dewey-finn-salute-respect-gif-4980602'
-
-            ]
-            await ctx.send(random.choice(respect_gif))
+            em = discord.Embed(
+                title=f"{member.name} got respected by {ctx.author.name}"
+            )
+            em.set_image(url=random.choice(self.respect_gif))
+            await ctx.send(embed=em)
 
     @respect.error
     async def info_error(ctx, error):

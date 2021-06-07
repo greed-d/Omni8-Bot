@@ -78,11 +78,11 @@ class admin_commands(commands.Cog):
 
         for i in self.badwords:
             if i.lower() in message.content.lower() or i.upper() in message.content.upper():
-                if message.author.id == 532960958381817857 or message.author.id == 822867678745853963:
+                if message.author.id == 532960958381817857:
                     return
                 else:
                     await message.delete()
-                    await message.channel.send(f"{message.author.mention} you cannot use that word here")
+                    await message.channel.send(f"{message.author.mention} you cannot use that word here", delete_after=5)
                     self.bot.dispatch('profanity', message, i)
                     return
 

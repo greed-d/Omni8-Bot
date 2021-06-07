@@ -20,13 +20,17 @@ bot_statuses = cycle([
     "Made with Python",
     "Work in progress",
     "Help!!!!",
-    "My creator is a dumbass"
+    "My creator is a dumbass",
+    "Playing >help "
 ])
 
 
 @tasks.loop(seconds=70)
 async def bot_status():
+    await bot.wait_until_ready()
     await bot.change_presence(activity=discord.Game(next(bot_statuses)))
+    
+bot_status.start()
 
 bot.remove_command("help")
 
