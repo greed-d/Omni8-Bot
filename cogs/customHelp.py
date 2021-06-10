@@ -21,6 +21,8 @@ class cus_help(commands.Cog):
                      value=" ``👋 hello``, ``😀 thanks``, ``🙋‍♂️ bye``, ``📶 ping``")
         em.add_field(name=' 🏓 Games',
                      value=' ``🔮 Fortune telling and more coming on the way``')
+        em.add_field(name=' ℹ Info',
+                     value=' ``ginfo``, ``minfo``, `av`, `roles`')
 
         await ctx.send(embed=em)
 
@@ -170,7 +172,43 @@ class cus_help(commands.Cog):
             title="Ping", description="``Checkes ping form bot to server 🙂``", color=ctx.author.color)
 
         em.add_field(name='**SYNTAX**',
-                     value="``>ping``")
+                     value=">``ping``")
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def ginfo(self, ctx):
+        em = discord.Embed(
+            title="Guild/Server Information", description="``Information about the server``", color=ctx.author.color)
+
+        em.add_field(name='**SYNTAX**',
+                     value=">``ginfo``")
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def minfo(self, ctx):
+        em = discord.Embed(
+            title="Member Information", description="``Information about the member``", color=ctx.author.color)
+
+        em.add_field(name='**SYNTAX**',
+                     value=">``minfo <member/username>``")
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def av(self, ctx):
+        em = discord.Embed(
+            title="Member's Avatar", description="``Information about the member``", color=ctx.author.color)
+
+        em.add_field(name='**SYNTAX**',
+                     value=">``av|avatar <member/username>``")
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def roles(self, ctx):
+        em = discord.Embed(
+            title="All the role in server", description="``Information about the member``", color=ctx.author.color)
+
+        em.add_field(name='**SYNTAX**',
+                     value="``>minfo <member/username>``")
         await ctx.send(embed=em)
 
 
