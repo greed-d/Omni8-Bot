@@ -1,3 +1,4 @@
+from os import name
 import discord
 from discord.ext import commands
 from discord.ext.commands.core import command
@@ -42,5 +43,8 @@ class basic_commands(commands.Cog):
         await ctx.send(f"```Pong! {round(self.bot.latency * 1000)} ms```")
 
 
+    
+
 def setup(bot):
     bot.add_cog(basic_commands(bot))
+

@@ -11,11 +11,14 @@ class command_error_handler(commands.Cog):
         if hasattr(ctx.command, 'on_error'):
             return
 
-        if isinstance(error, commands.CommandNotFound):
-            await ctx.send("uh oh this command is not in here, try >help for more info")
+        elif isinstance(error, commands.CommandNotFound):
+            await ctx.send("uh oh! This command is not in here, try >help for more info")
 
-        if isinstance(error, commands.MissingPermissions):
-            await ctx.send("You don't have the required level of authority to execute this command")
+        elif isinstance(error, commands.MissingPermissions):
+            await ctx.send("You don't have the required level of authority to execute this command!!!")
+
+        else:
+            raise error
 
 
 def setup(bot):

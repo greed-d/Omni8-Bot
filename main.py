@@ -27,21 +27,21 @@ bot_statuses = cycle([
 
 @tasks.loop(seconds=70)
 async def bot_status():
-    await bot.wait_until_ready()
+    await bot.wait_until_ready() #Waits for internal cache to be ready
     await bot.change_presence(activity=discord.Game(next(bot_statuses)))
     
 bot_status.start()
 
 bot.remove_command("help")
 
-
+#loads a cog
 @bot.command()
 async def load(ctx, extension):
     if ctx.author.id == 532960958381817857:
         bot.load_extension(f'cogs.{extension}')
         await ctx.send("The cog has been loaded")
 
-
+#unpacks a cog
 @bot.command()
 async def unload(ctx, extension):
     if ctx.author.id == 532960958381817857:
@@ -51,8 +51,8 @@ async def unload(ctx, extension):
     else:
         await ctx.sent("You don't have the required permission")
 
-
-@bot.command(aliases=['rl'])
+#reloads the whole cogs in the bot
+@bot.command(aliases=['rl']) 
 async def re_load(ctx, extension):
     if ctx.author.id == 532960958381817857:
         bot.unload_extension(f'cogs.{extension}')

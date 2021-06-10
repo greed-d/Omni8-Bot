@@ -81,9 +81,9 @@ class admin_commands(commands.Cog):
                 if message.author.id == 532960958381817857:
                     return
                 else:
-                    await message.delete()
+                    await message.delete()                    
                     await message.channel.send(f"{message.author.mention} you cannot use that word here", delete_after=5)
-                    self.bot.dispatch('profanity', message, i)
+                    self.bot.dispatch('profanity', message,i)
                     return
 
     @commands.Cog.listener()
