@@ -14,15 +14,17 @@ class cus_help(commands.Cog):
             title="Help", description="Hola!! Here!! Use >help  <command>  for furthur info")
 
         em.add_field(name=" 🛠 Moderation",
-                     value=' ``👢 kick``, ``❌ ban``, ``❗warn``, ``🆘 unban``, ``⏳ slowmode``, ``🔇 Mute``, ``🔊Unmute``, `    💥Purge`')
+                     value=' `👢 kick, ❌ ban, ❗warn, 🆘 unban, ⏳ slowmode, 🔇 Mute, 🔊Unmute, 💥Purge`')
+        
+
         em.add_field(name=' 😎 Expressions',
-                     value=' ``🧤 pat``, ``🤚🏿 slap``, `` 🙏 respect``, ``🤣joke``')
+                     value=' `🧤 pat, 🤚🏿 slap,  🙏 respect, 🤣joke`')
         em.add_field(name=" 🔥 Basic Commands",
-                     value=" ``👋 hello``, ``😀 thanks``, ``🙋‍♂️ bye``, ``📶 ping``")
+                     value=" `👋 hello, 😀 thanks, 🙋‍♂️ bye, 📶 ping`")
         em.add_field(name=' 🏓 Games',
-                     value=' ``🔮 Fortune telling and more coming on the way``')
+                     value=' `🔮 Fortune telling and more coming on the way`')
         em.add_field(name=' ℹ Info',
-                     value=' ``ginfo``, ``minfo``, `av`, `roles`')
+                     value=' `ginfo, minfo, av, roles`')
 
         await ctx.send(embed=em)
 
