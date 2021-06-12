@@ -11,20 +11,20 @@ class cus_help(commands.Cog):
     @commands.group(invoke_without_command=True)
     async def help(self, ctx):
         em = discord.Embed(
-            title="Help", description="Hola!! Here!! Use >help  <command>  for furthur info")
+            title="Help", description="Hola!! Here!! Use >help  <command>  for furthur info", color = discord.Color.blurple())
 
         em.add_field(name=" 🛠 Moderation",
-                     value=' `👢 kick, ❌ ban, ❗warn, 🆘 unban, ⏳ slowmode, 🔇 Mute, 🔊Unmute, 💥Purge`')
+                     value=' `👢 kick`, `❌ ban`, `❗warn`, `🆘 unban`, `⏳ slowmode`, `🔇 Mute`, `🔊Unmute`, `💥Purge`', inline=False)
         
 
         em.add_field(name=' 😎 Expressions',
-                     value=' `🧤 pat, 🤚🏿 slap,  🙏 respect, 🤣joke`')
+                     value=' `🧤 pat`, `🤚🏿 slap`,  `🙏 respect`, `🤣joke`', inline=False)
         em.add_field(name=" 🔥 Basic Commands",
-                     value=" `👋 hello, 😀 thanks, 🙋‍♂️ bye, 📶 ping`")
+                     value=" `👋 hello`, `😀 thanks`, `🙋‍♂️ bye`, `📶 ping`",inline=False)
         em.add_field(name=' 🏓 Games',
-                     value=' `🔮 Fortune telling and more coming on the way`')
+                     value=' `🔮 Fortune telling and more coming on the way`',inline=False)
         em.add_field(name=' ℹ Info',
-                     value=' `ginfo, minfo, av, roles`')
+                     value=' `ginfo`, `minfo`, `av`, `roles`',inline=False)
 
         await ctx.send(embed=em)
 
