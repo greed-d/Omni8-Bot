@@ -20,16 +20,14 @@ class internet_sutff(commands.Cog):
                 jokes = await resp.json()
                 await ctx.send(jokes["joke"])
 
-    def get_quote():
-        response = requests.get("https://zenquotes.io/api/random")
-        json_data = json.loads(response.text)
-        quote = json_data[0]["q"] + "   -" + json_data[0]["a"]
-        return quote
-
     @commands.command()
-    async def inspire(self, ctx):
-        quote = self.get_quote()
-        await ctx.send(quote)
+    async def inspire(ctx):
+        async with aiohttp.ClientSession() as session:
+            async with session.get("https://zenquotes.io/api/random") as resp:
+                resp_text = await resp.text()
+                quote = json.loads(resp_text)
+                q = quote[0]["q"] + "   -" + quote[0]["a"]
+                await ctx.send(q)
 
 
 def setup(bot):

@@ -13,6 +13,7 @@ TOKEN = os.getenv("TOKEN")
 
 bot = commands.Bot(command_prefix=">", intents=discord.Intents.all())
 
+
 bot_statuses = cycle(
     [
         "This is OMNI",
@@ -21,7 +22,6 @@ bot_statuses = cycle(
         "Help!!!!",
         "My creator is a dumbass",
         "Playing >help ",
-        f"Playing in {len(bot.guilds)}",
     ]
 )
 
@@ -80,13 +80,6 @@ async def info_error(ctx, error):
 
     if isinstance(error, FileNotFoundError):
         await ctx.send("the file is not found")
-
-
-"""
-@fortune_telling.error
-async def info_error(ctx, error):
-    if isinstance(error, commands.errors.CommandNotFound):
-        await ctx.sent(f"I am not that intelligent please start it with 'will' 🥺")"""
 
 
 bot.run(TOKEN)

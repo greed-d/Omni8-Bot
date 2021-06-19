@@ -8,14 +8,24 @@ class command_error_handler(commands.Cog):
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
-        if hasattr(ctx.command, 'on_error'):
+        if hasattr(ctx.command, "on_error"):
             return
 
         elif isinstance(error, commands.CommandNotFound):
-            await ctx.send("uh oh! This command is not in here, try >help for more info")
+            await ctx.send(
+                "uh oh! This command is not in here, try >help for more info"
+            )
 
         elif isinstance(error, commands.MissingPermissions):
-            await ctx.send("You don't have the required level of authority to execute this command!!!")
+            await ctx.send(
+                "You don't have the required level of authority to execute this command!!!"
+            )
+
+        elif isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please enter all the required argument required")
+
+        elif isinstance(error, commands.BadArgument):
+            await ctx.send("Please enter a valid argument for the command!!!")
 
         else:
             raise error

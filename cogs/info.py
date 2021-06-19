@@ -53,10 +53,7 @@ class info(commands.Cog):
             ]
         )
         # role_name = (",".join(role_name))
-        if list(role_name) == None:
-            return "No Role"
-        else:
-            return list(role_name)
+        return list(role_name)
 
     def mem_created(self, member: discord.Member):
         memcreated = (
@@ -87,7 +84,7 @@ class info(commands.Cog):
 
         em.add_field(
             name="**CREATED AT**",
-            value=f"{(ctx.guild.created_at.replace(second=0, microsecond=0))}\nIt has been {self.dayscreated(ctx)} days since the guild was created",
+            value=f"{(ctx.guild.created_at.replace(minute = 0, second=0, microsecond=0))}\nIt has been {self.dayscreated(ctx)} days since the guild was created",
             inline=False,
         )
 
@@ -96,7 +93,7 @@ class info(commands.Cog):
         em.set_thumbnail(url=ctx.guild.icon_url)
 
         await ctx.send(embed=em)
-        await ctx.send(len(em))
+        # await ctx.send(len(em))
 
     @commands.command()
     async def minfo(self, ctx, member: discord.Member = None):
@@ -170,14 +167,13 @@ class info(commands.Cog):
 
         em.add_field(name="**JOINED FOR**", value=f"{self.bot_joined(ctx)} days")
 
-        em.add_field(
-            name="**Created At**",
-            value=f"{ctx.guild.created_at.replace(second=0, microsecond=0, minute=0)}\nIt has been {self.dayscreated(ctx)} since the guild was created",
-        )
-
         em.set_author(name=f"{self.bot.user.name}", icon_url=self.bot.user.avatar_url)
 
         em.set_thumbnail(url=self.bot.user.avatar_url)
+
+        em.set_footer(
+            text=f"Requested by {ctx.author.name}", icon_url=ctx.author.avatar_url
+        )
 
         await ctx.send(embed=em)
 
