@@ -12,6 +12,7 @@
   <a href="https://discord.com/api/oauth2/authorize?client_id=841547916199329812&permissions=8&scope=bot">Invite BOT</a>
   <br>
   You must have "Administrator" role and your rank should be above bot's 
+  <br>
   The bot is currently in static build 
 </div>
 
