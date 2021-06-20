@@ -1,6 +1,6 @@
 import discord
 import os
-from asyncio.windows_events import NULL
+# from asyncio.windows_events import NULL
 from discord.flags import Intents
 from dotenv import load_dotenv
 from discord.ext import commands, tasks
