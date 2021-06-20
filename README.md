@@ -12,6 +12,7 @@
   <a href="https://discord.com/api/oauth2/authorize?client_id=841547916199329812&permissions=8&scope=bot">Invite BOT</a>
   <br>
   You must have "Administrator" role and your rank should be above bot's 
+  The bot is currently in static build 
 </div>
 
 <p align="center">
@@ -54,7 +55,11 @@ Type ">help" after inviting the bot in the server for more information
 
 ## 📝 To-Do
 
-add todo here
+Make the bot more dynamic 
+
+Add more fun/moderation commands
+
+Add a feature to ping member on manga/manhwa/manhua update 
 
 ## 📖 License
 
