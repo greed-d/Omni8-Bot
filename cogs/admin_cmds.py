@@ -200,6 +200,88 @@ class admin_commands(commands.Cog):
                         )
                         await channel.send(embed=em, delete_after=5)
 
+    @commands.command()
+    @commands.has_permissions(manage_guild=True)
+    async def rules(self, ctx):
+        em = discord.Embed(
+            title="**####################  RULES ####################**",
+            description="Here are the rules for server",
+            color=discord.Color.purple(),
+            align="center",
+        )
+        em.add_field(
+            name="1.",
+            value="No hate, toxic behavior, sexism, or racism of any kind.",
+            inline=False,
+        )
+        em.add_field(
+            name="2.",
+            value="Don't spam, spoil things, flood chat with CAPS, or line-split.",
+            inline=False,
+        )
+        em.add_field(
+            name="3.",
+            value="Starting or participating in drama of any kind is strictly forbidden.",
+            inline=False,
+        )
+        em.add_field(
+            name="4.",
+            value="Disrespecting other members or servers is not allowed.",
+            inline=False,
+        )
+        em.add_field(
+            name="5.",
+            value="Rule evasion or attempts to test the limits of what is possible is not allowed.",
+            inline=False,
+        )
+        em.add_field(
+            name="6.",
+            value="Don't promote cruelty, violence, self-harm, suicide or pornography.",
+            inline=False,
+        )
+        em.add_field(
+            name="7.", value="No begging, stalking or threatening.", inline=False
+        )
+        em.add_field(
+            name="8.",
+            value="Raiding or planning raids is strictly forbidden.",
+            inline=False,
+        )
+        em.add_field(
+            name="9.", value="Keep things in the correct channels.", inline=False
+        )
+        em.add_field(
+            name="10.",
+            value="Don't advertise. Especially DM advertising another Discord server is strictly forbidden.",
+            inline=False,
+        )
+        em.add_field(
+            name="11.",
+            value="Controversial topics such as religion or politics is not allowed.",
+            inline=False,
+        )
+        em.add_field(
+            name="12.",
+            value="Catfishing and any sort of fake identities is forbidden.",
+            inline=False,
+        )
+        em.add_field(
+            name="13.",
+            value="Don't attempt to bypass any blocked words.",
+            inline=False,
+        )
+        em.add_field(
+            name="14.",
+            value="Refrain from talking about banned members and anything regarding them. If you have problems regarding a ban feel free to directly message a staff member.",
+            inline=False,
+        )
+        em.add_field(
+            name="15.",
+            value="We dont allow any NSFW Content / Avatars on any of the sfw channels",
+            inline=False,
+        )
+        await ctx.channel.send(embed=em)
+
 
 def setup(bot):
     bot.add_cog(admin_commands(bot))
