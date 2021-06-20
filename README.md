@@ -8,7 +8,8 @@
 
 
 <div align=center>
-  <a href="#">https://discord.com/api/oauth2/authorize?client_id=841547916199329812&permissions=8&scope=bot `Invite Link`</a>
+<!--   <a href="#">https://discord.com/api/oauth2/authorize?client_id=841547916199329812&permissions=8&scope=bot</a> -->
+  <a href="https://discord.com/api/oauth2/authorize?client_id=841547916199329812&permissions=8&scope=bot">Invite BOT</a>
 </div>
 
 <p align="center">
