@@ -32,7 +32,11 @@ If you liked this repository, feel free to leave a star ⭐ to help promote Omni
 
 ## ❗ Features
 
-List your features here
+Profanity Filter : Can filter profanity from the chat
+
+Link limiter : Can make a channel dedicated to links only 
+
+Type ">help" after inviting the bot in the server for more information
 
 
 ## 📝 To-Do
