@@ -36,6 +36,7 @@ If you liked this repository, feel free to leave a star ⭐ to help promote Omni
 
 ## ❗ Features
 <b>Moderation</b>
+<br>
 Profanity Filter : Can filter profanity from the chat
 
 Link limiter : Can make a channel dedicated to links only 
@@ -45,7 +46,7 @@ Server/Member info : Info about the guild or a certain member on the guild
 Mute/Unmute : Mute/Unmutes a member 
 
 <b>Fun Command</b>
-
+<br>
 Fun commands integrated like 'slap', 'respect' etc.
 
 Type ">help" after inviting the bot in the server for more information
