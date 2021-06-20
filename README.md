@@ -8,7 +8,7 @@
 
 
 <div align=center>
-  <a href="#">Add your invite link here and replace it `Invite Link`</a>
+  <a href="#">https://discord.com/api/oauth2/authorize?client_id=841547916199329812&permissions=8&scope=bot `Invite Link`</a>
 </div>
 
 <p align="center">
