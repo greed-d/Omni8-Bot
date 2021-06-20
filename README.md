@@ -28,15 +28,25 @@
 
 ## ❓ About
 
-add your about, description
-
+A bot dedicated to make server fun and friendly!!
+<br>
+Confirm the addition of bot after seeing it on a member welcoming channel (could be '#landing-ground' or '#welcome')
+<br>
 If you liked this repository, feel free to leave a star ⭐ to help promote Omni8-bot!
 
 ## ❗ Features
-
+<b>Moderation</b>
 Profanity Filter : Can filter profanity from the chat
 
 Link limiter : Can make a channel dedicated to links only 
+
+Server/Member info : Info about the guild or a certain member on the guild
+
+Mute/Unmute : Mute/Unmutes a member 
+
+<b>Fun Command</b>
+
+Fun commands integrated like 'slap', 'respect' etc.
 
 Type ">help" after inviting the bot in the server for more information
 
