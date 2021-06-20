@@ -8,7 +8,7 @@
 
 
 <div align=center>
-[Invite Link](addyourinvitelinkhere.com)
+  <a href="#">Add your invite link here and replace it `Invite Link`</a>
 </div>
 
 <p align="center">
