@@ -37,7 +37,7 @@ Confirm the addition of bot after seeing it on a member welcoming channel (could
 If you liked this repository, feel free to leave a star ⭐ to help promote Omni8-bot!
 
 ## ❗ Features
-<b>Moderation</b>
+<h3><b>Moderation</b></h3>
 <br>
 Profanity Filter : Can filter profanity from the chat
 
