@@ -17,13 +17,13 @@
 </div>
 
 <p align="center">
-  <a href="#about">About</a>
+  <a href="#About">About</a>
   •
   <a href="#Features">Features</a>
   •
   <a href="#installation">Installation</a>
   •
-  <a href="#license">License</a>
+  <a href="#License">License</a>
   •
   <a href="#credits">Credits</a>
 </p>
