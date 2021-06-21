@@ -64,6 +64,4 @@ Add a feature to ping member on manga/manhwa/manhua update
 
 ## 📖 License
 
-Released under the [Apache License 2.0](https://github.com/BigDaddy058/Omni8-Bot/blob/main/LICENSE) license.
-
-## 📜 Credits
+Released under the [MIT](https://github.com/BigDaddy058/Omni8-Bot/blob/main/LICENSE) license.
