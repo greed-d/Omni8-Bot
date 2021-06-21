@@ -40,6 +40,10 @@ class basic_commands(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
         await ctx.send(f"```Pong! {round(self.bot.latency * 1000)} ms```")
+        
+    @commands.command()
+    async def routine(self, ctx):
+        await ctx.send("Routine command coming soon")
 
 
 def setup(bot):
