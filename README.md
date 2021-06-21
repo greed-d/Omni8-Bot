@@ -17,7 +17,7 @@
 </div>
 
 <p align="center">
-  <a href="#About">About</a>
+  <a href="❓ About">About</a>
   •
   <a href="#Features">Features</a>
   •
