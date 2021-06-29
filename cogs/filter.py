@@ -43,7 +43,8 @@ class Filter(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         for word in self.badwords:
-            if message.content.find(word) != -1:
+            # if word.islower() or word.isupper():
+            if message.content.lower().find(word.lower()) != -1:
                 await message.delete()
                 em = discord.Embed(
                     title="**—————————————WARNING—————————————**",
