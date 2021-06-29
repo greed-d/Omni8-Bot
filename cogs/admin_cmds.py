@@ -102,46 +102,6 @@ class admin_commands(commands.Cog):
             await ctx.send(f"Slowmode set to {time} seconds!")
 
     @commands.Cog.listener()
-    async def on_message(self, message):
-
-        for i in self.badwords:
-            if (
-                i.lower() in message.content.lower()
-                or i.upper() in message.content.upper()
-            ):
-                if message.author.id == 532960958381817857:
-                    return
-                else:
-                    await message.delete()
-                    await message.channel.send(
-                        f"{message.author.mention} you cannot use that word here",
-                        delete_after=5,
-                    )
-                    self.bot.dispatch("profanity", message, i)
-                    return
-
-    @commands.Cog.listener()
-    async def on_profanity(self, message, word):
-        guild = message.guild
-        if guild.id == 841550614344237057:
-            channel = self.bot.get_channel(847342532438655017)
-            embed = discord.Embed(
-                title="**PROFANITY ALERT**",
-                description=f"{message.author.name} just said the word ||{word}||",
-                color=discord.Color.blurple(),
-            )
-            await channel.send(embed=embed)
-
-        elif guild.id == 839543471412477952:
-            channel = self.bot.get_channel(847375614406950933)
-            embed = discord.Embed(
-                title="**PROFANITY ALERT**",
-                description=f"{message.author.name} just said the word ||{word}||",
-                color=discord.Color.blurple(),
-            )
-            await channel.send(embed=embed)
-
-    @commands.Cog.listener()
     async def on_guild_join(self, guild):
         perms = discord.Permissions(send_messages=False, read_messages=True)
         role = await guild.create_role(name="Muted", permissions=perms)
