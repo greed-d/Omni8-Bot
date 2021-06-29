@@ -154,7 +154,7 @@ class info(commands.Cog):
 
         em.add_field(name="**BOT NAME**", value=f"{self.bot.user.name}")
 
-        em.add_field(name="**CREATOR**", value=f"BigDaddy#8060")
+        em.add_field(name="**CREATOR**", value=f"BigDaddy#0860")
 
         em.add_field(name="**VERSION**", value=f"1.0.0")
 
