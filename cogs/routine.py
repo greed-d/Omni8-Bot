@@ -92,7 +92,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="12:00PM - 1:40PM",
-                value="[EM/SD](https://meet.google.com/lookup/cki5peapz5?authuser=1&hs=179)",
+                value="[EM/SD](https://meet.google.com/hzc-fwqv-xax)",
                 inline=False,
             )
             await ctx.send(embed=em)
