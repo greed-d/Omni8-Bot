@@ -24,7 +24,7 @@ class cus_help(commands.Cog):
 
         em.add_field(
             name=" 😎 Expressions",
-            value=" `🧤 pat`, `🤚🏿 slap`,  `🙏 respect`, `🤣joke`",
+            value=" `🧤 pat`, `🤚🏿 slap`,  `🙏 respect`, `🤣joke`, `😌inspire`",
             inline=False,
         )
         em.add_field(
@@ -39,7 +39,7 @@ class cus_help(commands.Cog):
         )
         em.add_field(
             name=" ℹ Info",
-            value=" `ginfo`, `minfo`, `av`, `roles`,`botinfo`",
+            value=" `ginfo`, `minfo`, `av`, `botinfo`",
             inline=False,
         )
 
@@ -176,6 +176,18 @@ class cus_help(commands.Cog):
         )
 
         em.add_field(name="**SYNTAX**", value=">``joke``")
+
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def inspire(self, ctx):
+        em = discord.Embed(
+            title="Inspire",
+            description="``Sends a motivational quote``",
+            color=ctx.author.color,
+        )
+
+        em.add_field(name="**SYNTAX**", value=">``inspire``")
 
         await ctx.send(embed=em)
 

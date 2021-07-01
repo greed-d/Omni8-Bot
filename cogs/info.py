@@ -52,8 +52,8 @@ class info(commands.Cog):
                 if i.name not in ("@everyone", "─────── USER PROFILE ───────")
             ]
         )
-        # role_name = (",".join(role_name))
-        return list(role_name)
+        role_name = f"{', '.join('`' + role + '`'for role in role_name)}"
+        return role_name
 
     def mem_created(self, member: discord.Member):
         memcreated = (
@@ -117,7 +117,11 @@ class info(commands.Cog):
 
             em.add_field(name="**JOINED FOR**", value=f"{self.mem_joined(member)} days")
 
-            em.add_field(name="MEMBER'S ROLE", value=list(mrole), inline=False)
+            em.add_field(
+                name="MEMBER'S ROLE",
+                value=(f"{', '.join('`' + role + '`'for role in mrole)}"),
+                inline=False,
+            )
 
             em.add_field(
                 name="**ACCOUNT CREATED FOR**",

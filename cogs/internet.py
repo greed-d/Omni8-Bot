@@ -21,7 +21,7 @@ class internet_sutff(commands.Cog):
                 await ctx.send(jokes["joke"])
 
     @commands.command()
-    async def inspire(ctx):
+    async def inspire(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://zenquotes.io/api/random") as resp:
                 resp_text = await resp.text()
