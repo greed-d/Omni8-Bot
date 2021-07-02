@@ -132,11 +132,6 @@ class Routine(commands.Cog):
                 inline=False,
             )
             em.add_field(
-                name="12:00AM - 2:30AM",
-                value="[EDC/KKJ](https://meet.google.com/lookup/gueos7ushn)",
-                inline=False,
-            )
-            em.add_field(
                 name="12:50PM - 2:30PM",
                 value="[A2 OOP LAB](https://meet.google.com/lookup/cuoqcmwoxk)",
                 inline=False,
