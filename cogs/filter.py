@@ -15,7 +15,7 @@ class Filter(commands.Cog):
             "dick",
             "machikne",
             "shit",
-            "tit",
+            "tits",
             "bitch",
             "whore",
             "hoe",
