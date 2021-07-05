@@ -33,7 +33,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="1:40PM - 3:20PM",
-                value="[EM/SD](https://meet.google.com/lookup/cki5peapz5?authuser=1&hs=179)",
+                value="[EM/SD](https://meet.google.com/hzc-fwqv-xax)",
                 inline=False,
             )
             await ctx.send(embed=em)
@@ -56,7 +56,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="1:40PM - 3:20PM",
-                value="[EM/SD](https://meet.google.com/lookup/cki5peapz5?authuser=1&hs=179)",
+                value="[EM/SD](https://meet.google.com/hzc-fwqv-xax)",
                 inline=False,
             )
             await ctx.send(embed=em)
@@ -137,6 +137,8 @@ class Routine(commands.Cog):
                 inline=False,
             )
             await ctx.send(embed=em)
+        else:
+            await ctx.send("No classes today hurray :D")
 
 
 def setup(bot):

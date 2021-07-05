@@ -48,13 +48,16 @@ class Filter(commands.Cog):
                 if "https://" in message.content:
                     return
                 else:
-                    await message.delete()
-                    em = discord.Embed(
-                        title="**—————————————WARNING—————————————**",
-                        description=f"{message.author.name}!! You cannot use that word here",
-                        color=discord.Color.purple(),
-                    )
-                    await message.channel.send(embed=em)
+                    if message.guild.id == 856018962231197726:
+                        return
+                    else:
+                        await message.delete()
+                        em = discord.Embed(
+                            title="**─────────────WARNING─────────────**",
+                            description=f"{message.author.name}!! You cannot use that word here",
+                            color=discord.Color.purple(),
+                        )
+                        await message.channel.send(embed=em)
 
 
 def setup(bot):
