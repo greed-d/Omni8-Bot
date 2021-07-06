@@ -33,7 +33,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="1:40PM - 3:20PM",
-                value="[EM/SD](https://meet.google.com/hzc-fwqv-xax)",
+                value="[EM/SD](https://meet.google.com/lookup/e7xljvtzki)",
                 inline=False,
             )
             await ctx.send(embed=em)
@@ -56,7 +56,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="1:40PM - 3:20PM",
-                value="[EM/SD](https://meet.google.com/hzc-fwqv-xax)",
+                value="[EM/SD](https://meet.google.com/lookup/e7xljvtzki)",
                 inline=False,
             )
             await ctx.send(embed=em)
@@ -69,12 +69,12 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="8:40AM - 10:20AM",
-                value="[EDC/AKR](https://meet.google.com/vui-oajf-hwz?authuser=1)",
+                value="[EDC/AKR](ttps://meet.google.com/lookup/glirqg5j54)",
                 inline=False,
             )
             em.add_field(
                 name="12:00PM - 2:30PM",
-                value="[OOP LAB A1](https://meet.google.com/lookup/cki5peapz5?authuser=1&hs=179)",
+                value="[OOP LAB A1](https://meet.google.com/lookup/cki5peapz5)",
                 inline=False,
             )
             await ctx.send(embed=em)
@@ -92,7 +92,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="12:00PM - 1:40PM",
-                value="[EM/SD](https://meet.google.com/hzc-fwqv-xax)",
+                value="[EM/SD](https://meet.google.com/lookup/e7xljvtzki)",
                 inline=False,
             )
             await ctx.send(embed=em)
