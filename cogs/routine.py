@@ -69,7 +69,7 @@ class Routine(commands.Cog):
             )
             em.add_field(
                 name="8:40AM - 10:20AM",
-                value="[EDC/AKR](ttps://meet.google.com/lookup/glirqg5j54)",
+                value="[EDC/AKR](https://meet.google.com/lookup/glirqg5j54)",
                 inline=False,
             )
             em.add_field(
