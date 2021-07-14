@@ -190,6 +190,13 @@ class info(commands.Cog):
 
         await ctx.send(embed=em)
 
+    @commands.command()
+    async def jgl(self, ctx):
+
+        await ctx.send(
+            f"{', '.join('`' + guild.name + '`'for guild in self.bot.guilds)}"
+        )
+
 
 def setup(bot):
     bot.add_cog(info(bot))
