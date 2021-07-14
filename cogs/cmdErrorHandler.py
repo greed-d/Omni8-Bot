@@ -8,6 +8,7 @@ class command_error_handler(commands.Cog):
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
+        error = error = getattr(error, "original", error)
         if hasattr(ctx.command, "on_error"):
             return
 
