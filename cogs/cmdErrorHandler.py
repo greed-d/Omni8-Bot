@@ -27,6 +27,12 @@ class command_error_handler(commands.Cog):
         elif isinstance(error, commands.BadArgument):
             await ctx.send("Please enter a valid argument for the command!!!")
 
+        elif isinstance(error, commands.ExtensionAlreadyLoaded):
+            await ctx.send("The extension is already loaded")
+
+        elif isinstance(error, commands.ExtensionNotLoaded):
+            await ctx.send("The extension is not loaded")
+
         else:
             raise error
 

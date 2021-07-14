@@ -13,7 +13,7 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 
 
-bot = commands.Bot(command_prefix=">", intents=discord.Intents.all())
+bot = commands.Bot(command_prefix="cb ", intents=discord.Intents.all())
 
 
 bot_statuses = cycle(
@@ -41,16 +41,20 @@ bot.remove_command("help")
 # loads a cog
 @bot.command()
 async def load(ctx, extension):
-    if ctx.author.id == 532960958381817857:
+    if ctx.author.id in (532960958381817857, 822867678745853963):
+        print("start")
         bot.load_extension(f"cogs.{extension}")
+        print("done")
         await ctx.send("The cog has been loaded")
 
 
 # unpacks a cog
 @bot.command()
 async def unload(ctx, extension):
-    if ctx.author.id == 532960958381817857:
+    if ctx.author.id in (532960958381817857, 822867678745853963):
+        print("start")
         bot.unload_extension(f"cogs.{extension}")
+        print("done")
         await ctx.send("The cog has been unloaded")
 
     else:

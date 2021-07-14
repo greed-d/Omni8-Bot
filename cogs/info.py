@@ -139,7 +139,16 @@ class info(commands.Cog):
     @commands.command(aliases=["av"])
     async def avatar(self, ctx, *, member: discord.Member = None):
         if member == None:
-            await ctx.send(f"Please enter a username")
+            useravatar = ctx.author.avatar_url
+            em = discord.Embed(
+                title=f"Avatar for {ctx.author.name}", color=discord.Colour.purple()
+            )
+
+            em.set_image(url=useravatar)
+
+            em.set_author(name=f"{ctx.author.name}", icon_url=ctx.author.avatar_url)
+
+            await ctx.send(embed=em)
         else:
             useravatar = member.avatar_url
             em = discord.Embed(
