@@ -38,6 +38,7 @@ class Filter(commands.Cog):
             "lick my",
             "bhosdi",
             "madarchut",
+            "madarchod",
         ]
 
     @commands.Cog.listener()
@@ -53,7 +54,7 @@ class Filter(commands.Cog):
                     else:
                         await message.delete()
                         em = discord.Embed(
-                            title="**─────────────WARNING─────────────**",
+                            title="**───────────── WARNING ─────────────**",
                             description=f"{message.author.name}!! You cannot use that word here",
                             color=discord.Color.purple(),
                         )

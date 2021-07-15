@@ -18,7 +18,7 @@ class cus_help(commands.Cog):
 
         em.add_field(
             name=" 🛡 Moderation",
-            value=" `👢 kick`, `❌ ban`, `❗warn`, `🆘 unban`, `⏳ slowmode`, `🔇 Mute`, `🔊Unmute`, `💥Purge`",
+            value=" `👢 kick`, `❌ ban`, `❗warn`, `🆘 unban`, `⏳ slowmode`, `🔇 Mute`, `🔊Unmute`, `💥Purge`,`🤖💥 bmpurge`, `🔈 softmute`",
             inline=False,
         )
 
@@ -39,7 +39,7 @@ class cus_help(commands.Cog):
         )
         em.add_field(
             name=" ℹ Info",
-            value=" `ginfo`, `minfo`, `av`, `botinfo`",
+            value=" `ginfo`, `minfo`, `av`, `botinfo`, `groles`",
             inline=False,
         )
 
@@ -128,6 +128,30 @@ class cus_help(commands.Cog):
         )
 
         em.add_field(name="**SYNTAX**", value=">``purge \n Amount = 1<x<100``")
+
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def softmute(self, ctx):
+        em = discord.Embed(
+            title="Softmute",
+            description="``Softmutes a member from the server 😢``",
+            color=ctx.author.color,
+        )
+
+        em.add_field(name="**SYNTAX**", value=">``softmute <member/username> [time]``")
+
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def bmpurge(self, ctx):
+        em = discord.Embed(
+            title="Bot Message Purge",
+            description="``Purges 'x' amount of bot's message from server``",
+            color=ctx.author.color,
+        )
+
+        em.add_field(name="**SYNTAX**", value=">``bmpurge \n Amount = 1<x<100``")
 
         await ctx.send(embed=em)
 
@@ -255,6 +279,17 @@ class cus_help(commands.Cog):
         )
 
         em.add_field(name="**SYNTAX**", value=">``ginfo``")
+        await ctx.send(embed=em)
+
+    @help.command()
+    async def groles(self, ctx):
+        em = discord.Embed(
+            title="Roles Information",
+            description="``Information about the roles in the server``",
+            color=ctx.author.color,
+        )
+
+        em.add_field(name="**SYNTAX**", value=">``groles``")
         await ctx.send(embed=em)
 
     @help.command()

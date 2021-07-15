@@ -1,5 +1,6 @@
 from os import name
 import discord
+from discord import embeds
 from discord.ext import commands
 from discord.ext.commands.core import command
 from datetime import datetime
@@ -46,11 +47,7 @@ class info(commands.Cog):
     def roles(self, ctx):
         role = ctx.guild.roles
         role_name = reversed(
-            [
-                i.name
-                for i in role
-                if i.name not in ("@everyone", "─────── USER PROFILE ───────")
-            ]
+            [i.name for i in role if i.name not in ("@everyone", "───────")]
         )
         role_name = f"{', '.join('`' + role + '`'for role in role_name)}"
         return role_name
@@ -80,7 +77,7 @@ class info(commands.Cog):
 
         em.add_field(name="**ROLE COUNT**", value=f"{len(ctx.guild.roles)}")
 
-        em.add_field(name="**ROLES**", value=self.roles(ctx))
+        # em.add_field(name="**ROLES**", value=self.roles(ctx))
 
         em.add_field(
             name="**CREATED AT**",
@@ -92,8 +89,17 @@ class info(commands.Cog):
 
         em.set_thumbnail(url=ctx.guild.icon_url)
 
+        await ctx.send(len(em))
         await ctx.send(embed=em)
-        # await ctx.send(len(em))
+
+    @commands.command()
+    async def groles(self, ctx):
+        em = discord.Embed(
+            title="**  ──────────────── SERVER ROLES ────────────────  **",
+            description=f"{self.roles(ctx)}",
+            color=discord.Colour.purple(),
+        )
+        await ctx.send(embed=em)
 
     @commands.command()
     async def minfo(self, ctx, member: discord.Member = None):
