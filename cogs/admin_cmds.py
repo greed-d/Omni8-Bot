@@ -103,11 +103,6 @@ class admin_commands(commands.Cog):
             await ctx.channel.edit(slowmode_delay=time)
             await ctx.send(f"Slowmode set to {time} seconds!")
 
-    @commands.Cog.listener()
-    async def on_guild_join(self, guild):
-        perms = discord.Permissions(send_messages=False, read_messages=True)
-        role = await guild.create_role(name="Muted", permissions=perms)
-
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx, member: discord.Member):
@@ -118,8 +113,16 @@ class admin_commands(commands.Cog):
             await ctx.channel.send("You cannot mute yourself")
 
         else:
-            var = discord.utils.get(ctx.guild.roles, name="Muted")
-            await member.add_roles(var)
+            role = discord.utils.get(ctx.guild.roles, name="Muted")
+            if not role:
+                perms = discord.Permissions(send_messages=False, read_messages=True)
+                role = await ctx.guild.create_role(
+                    name="Muted",
+                    permissions=perms,
+                )
+            pos = ctx.guild.me.top_role.position - 1
+            await role.edit(position=pos)
+            await member.add_roles(role)
             await ctx.channel.send(f"{member.mention} has been **MUTED**")
 
     @commands.command()
