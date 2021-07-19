@@ -1,6 +1,8 @@
+from datetime import datetime
 import discord
 import os
 from discord import channel
+from datetime import datetime
 
 # from asyncio.windows_events import NULL
 from discord.flags import Intents
@@ -15,6 +17,7 @@ TOKEN = os.getenv("TOKEN")
 
 bot = commands.Bot(command_prefix=">", intents=discord.Intents.all())
 
+bot.upstart = datetime.now()
 
 bot_statuses = cycle(
     [

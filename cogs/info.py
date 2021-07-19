@@ -1,9 +1,10 @@
 from os import name
+
 import discord
 from discord import embeds
 from discord.ext import commands
 from discord.ext.commands.core import command
-from datetime import datetime
+from datetime import date, datetime, time, timedelta
 
 
 class info(commands.Cog):
@@ -202,6 +203,13 @@ class info(commands.Cog):
         await ctx.send(
             f"{', '.join('`' + guild.name + '`'for guild in self.bot.guilds)}"
         )
+
+    @commands.command()
+    async def uptime(self, ctx):
+        timee = datetime.now() - self.bot.upstart
+        timee -= timedelta(microseconds=timee.microseconds)
+        # # await ctx.send(timee)
+        await ctx.send(f"```yaml\n{timee}```")
 
 
 def setup(bot):
