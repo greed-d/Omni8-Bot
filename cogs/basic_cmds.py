@@ -13,6 +13,11 @@ class basic_commands(commands.Cog):
         print("Bot {0.user} is ready".format(self.bot))
 
     @commands.Cog.listener()
+    async def on_message(self, message):
+        if self.bot.user in message.mentions:
+            await message.channel.send("Please use `>help` for more info")
+
+    @commands.Cog.listener()
     async def on_member_join(self, member):
         mbed = discord.Embed(
             color=(discord.Colour.dark_teal()),

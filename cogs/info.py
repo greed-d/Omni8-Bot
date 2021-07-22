@@ -206,8 +206,7 @@ class info(commands.Cog):
 
     @commands.command()
     async def uptime(self, ctx):
-        timee = datetime.now() - self.bot.upstart
-        timee -= timedelta(microseconds=timee.microseconds)
+        timee = datetime.utcnow() - self.bot.upstart
         # # await ctx.send(timee)
         await ctx.send(f"```yaml\n{timee}```")
 
