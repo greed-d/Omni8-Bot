@@ -5,8 +5,15 @@ from discord import message
 
 # from discord import client
 from discord.ext import commands
-from discord.ext.commands import bot
+from discord.ext.commands import bot, check, Context
 from discord.ext.commands.core import command
+
+
+def in_any_channel(self, *guilds):
+    async def predicate(ctx: Context):
+        return ctx.guild.id in guilds
+
+    return check(predicate)
 
 
 class admin_commands(commands.Cog):
@@ -266,6 +273,11 @@ class admin_commands(commands.Cog):
             inline=False,
         )
         await ctx.channel.send(embed=em)
+
+    @commands.command(name="ping")
+    @in_any_channel(764505370684817448)
+    async def ping(self, ctx: Context):
+        await ctx.send(f"```Pong! {round(self.bot.latency * 1000)} ms```")
 
 
 def setup(bot):

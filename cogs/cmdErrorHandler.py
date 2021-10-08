@@ -34,6 +34,9 @@ class command_error_handler(commands.Cog):
         elif isinstance(error, commands.ExtensionNotLoaded):
             await ctx.send("The extension is not loaded")
 
+        elif isinstance(error, commands.CheckFailure):
+            await ctx.send("The check function of the command failed.")
+
         else:
             raise error
 

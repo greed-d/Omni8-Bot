@@ -1,5 +1,5 @@
 from os import name
-
+import platform
 import discord
 from discord import embeds
 from discord.ext import commands
@@ -59,6 +59,10 @@ class info(commands.Cog):
             - member.created_at.replace(second=0, microsecond=0)
         ).days
         return memcreated
+
+    def user_name(self):
+        user = self.bot.get_user(532960958381817857)
+        return user.name
 
     @commands.command()
     async def ginfo(self, ctx):
@@ -174,7 +178,7 @@ class info(commands.Cog):
 
         em.add_field(name="**BOT NAME**", value=f"{self.bot.user.name}")
 
-        em.add_field(name="**CREATOR**", value=f"BigDaddy#0860")
+        em.add_field(name="**CREATOR**", value=self.user_name())
 
         em.add_field(name="**VERSION**", value=f"1.0.0")
 
@@ -186,6 +190,15 @@ class info(commands.Cog):
         )
 
         em.add_field(name="**JOINED FOR**", value=f"{self.bot_joined(ctx)} days")
+
+        em.add_field(name="**PYTHON VERSION**", value=f"{platform.python_version()}")
+
+        em.add_field(name="**DISCORD.PY VERSION**", value=f"{discord.__version__}")
+
+        em.add_field(
+            name="**TOTAL USER COUNT**",
+            value=f"{len(set(self.bot.get_all_members()))} users",
+        )
 
         em.set_author(name=f"{self.bot.user.name}", icon_url=self.bot.user.avatar_url)
 

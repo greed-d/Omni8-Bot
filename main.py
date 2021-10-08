@@ -14,8 +14,10 @@ from itertools import cycle
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 
-
-bot = commands.Bot(command_prefix=">", intents=discord.Intents.all())
+prefix = ">"
+bot = commands.Bot(
+    command_prefix=prefix, intents=discord.Intents.all(), case_insensitive=True
+)
 
 bot.upstart = datetime.utcnow()
 

@@ -1,5 +1,7 @@
 from os import name
 import discord
+
+# from main import prefix
 from discord.ext import commands
 from discord.ext.commands.core import command
 
@@ -10,7 +12,9 @@ class basic_commands(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print("Bot {0.user} is ready".format(self.bot))
+        print(
+            f"───────────────────────────────────────────────────\nLogged in as {self.bot.user} : {self.bot.user.id}\n───────────────────────────────────────────────────\nMy prefix is : '>'\n───────────────────────────────────────────────────"
+        )
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -34,17 +38,13 @@ class basic_commands(commands.Cog):
         else:
             await ctx.send(f"Hello {ctx.author.mention}")
 
-    @commands.command(aliases=["arigatoo", "thank you", "Thank you", "Thanks"])
+    @commands.command(aliases=["arigatoo"])
     async def thanks(self, ctx):
         await ctx.send(f"You're welcome {ctx.author.mention} :)")
 
     @commands.command()
     async def bye(self, ctx):
         await ctx.send(f"Byee!!{ctx.author.mention}")
-
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send(f"```Pong! {round(self.bot.latency * 1000)} ms```")
 
 
 def setup(bot):
